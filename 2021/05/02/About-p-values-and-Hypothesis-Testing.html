@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>About P Values And Hypothesis Testing | The Data and Analytics Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="About P Values And Hypothesis Testing" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="There are two contrasting views of Hypothesis testing. There is a group which is of the view that Hypothesis testing is essential for establishing statistical significance of a metric, and it is essential part of validating models. There is another group which believes that Hypothesis does not really prove or disprove a theory, but is merely a measure to check if there is sufficient data to be able to trust a model." />
+<meta property="og:description" content="There are two contrasting views of Hypothesis testing. There is a group which is of the view that Hypothesis testing is essential for establishing statistical significance of a metric, and it is essential part of validating models. There is another group which believes that Hypothesis does not really prove or disprove a theory, but is merely a measure to check if there is sufficient data to be able to trust a model." />
+<link rel="canonical" href="https://srinivasg2306.github.io/blog/2021/05/02/About-p-values-and-Hypothesis-Testing.html" />
+<meta property="og:url" content="https://srinivasg2306.github.io/blog/2021/05/02/About-p-values-and-Hypothesis-Testing.html" />
+<meta property="og:site_name" content="The Data and Analytics Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-05-02T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"There are two contrasting views of Hypothesis testing. There is a group which is of the view that Hypothesis testing is essential for establishing statistical significance of a metric, and it is essential part of validating models. There is another group which believes that Hypothesis does not really prove or disprove a theory, but is merely a measure to check if there is sufficient data to be able to trust a model.","url":"https://srinivasg2306.github.io/blog/2021/05/02/About-p-values-and-Hypothesis-Testing.html","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://srinivasg2306.github.io/blog/2021/05/02/About-p-values-and-Hypothesis-Testing.html"},"headline":"About P Values And Hypothesis Testing","dateModified":"2021-05-02T00:00:00-05:00","datePublished":"2021-05-02T00:00:00-05:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://srinivasg2306.github.io/blog/feed.xml" title="The Data and Analytics Blog" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">The Data and Analytics Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">About P Values And Hypothesis Testing</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-05-02T00:00:00-05:00" itemprop="datePublished">
+        May 2, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      4 min read
+    
+</span></p>
+
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>There are two contrasting views of Hypothesis testing. There is a group which is of the view that Hypothesis testing is essential for establishing statistical significance of a metric, and it is essential part of validating models. There is another group which believes that Hypothesis does not really prove or disprove a theory, but is merely a measure to check if there is sufficient data to be able to trust a model.</p>
+
+<p> </p>
+
+<p>For now, let us assume that Hypothesis testing is useful, and narrate an example</p>
+
+<p> </p>
+
+<p>Marketing Campaigns are done in the form of sending messages from a company to its customers with an objective of increasing sales. It is believed that when messages are sent, some of the customers see them, and few among them will be driven to make a purchase-typically over a period of time. So messages are sent to specific customers, and their purchases are tracked for a period of time. Any sale happening during the period is attributed to the message sent.</p>
+
+<p>(it is assumed that there is only one marketing message during the period, if there are multiple messages then the sale is attributed either to the first or last message)</p>
+
+<p> </p>
+
+<p>The attribution process is not always robust or fool-proof, and is driven by a lot of theory than actual facts. It is hard to believe that an SMS can drive crores of sales (RoI is absurdly high in these cases). In reality, the reasons can be different - Offers, Events like Birthday wedding etc., or any unknown needs of customers. While it is difficult to predict why a customer buys, it is possible to trigger a need for purchase in a customer by sending a communication at right time.</p>
+
+<p> </p>
+
+<p>Nevertheless, it is important to have a strong measure for lift and attribution in order to establish whether a marketing campaign works or not. One way of measuring effectiveness of campaign is by creating test and control groups. So how do we create test and control groups? To understand this, we need to know the meaning of “Strength of Test”. The article below gives good information -</p>
+
+<p><a href="https://www.markhw.com/blog/control-size">https://www.markhw.com/blog/control-size</a></p>
+
+<p>The strength of test is highest when sample sizes are equally split among test and control, and rapidly diminishes when control group goes below 20%. Depending on the total size of the sample set, any number between 50-20% would be ideal.</p>
+
+<p> </p>
+
+<p>How to measure statistical significance of lift?</p>
+
+<p>In this case,</p>
+
+<p>H0: Response rate of Test Group = Response rate of Control Group (There is no significance difference in response rates between Test and Control Groups)</p>
+
+<p>Ha : Response rate of Test Group is not equal to Response rate of Control Group</p>
+
+<p> </p>
+
+<p>We use 2 sample z test for proportion and calculate Z value</p>
+
+<p> </p>
+
+<p>Z = (p1-p2)/(sqrt(p(1-p)x(1/n1 + 1/n2))</p>
+
+<p>Where p = (n1*p1+n2*p2)/(n1+n2)</p>
+
+<p>P1= response proportion in test group</p>
+
+<p>P2 = response proportion in control group</p>
+
+<p>N1 = size of test group</p>
+
+<p>N2 = size of control group</p>
+
+<p> </p>
+
+<p>The value of Z for two tailed test at 95% significance level is 1.96. That is - there is a 95% chance that you will retain null hypothesis when it is true, if your Z statistic is 1.96 or more.</p>
+
+<p> </p>
+
+<p>P value = chances of observing the test statistic value given that the null hypothesis is true. P value should be as low as possible for us to be confidently reject null hypothesis. It should definitely be &lt; 0.05 base minimum for us to reject null hypothesis</p>
+
+<p> </p>
+
+<p>Let us assume that you are unable to reject null hypothesis because Z value &lt; 1.96</p>
+
+<p>You can run an experiment where you keep p1, p2 constant, but increase N1 and N2, you will see that the Z value increases even if you increase the numbers in the original proportions. This clearly indicates that as the size of data grows even if the proportion of test and control group remains same, the significance increases.</p>
+
+<p>Similarly, you can keep n1 and n2 constant and vary values of p1 and p2 such that p1-p2 increases, in this case, as p1-p2 increases, the significance value increases</p>
+
+<p> </p>
+
+<p>For those who believe that Hypothesis testing never works – we could say that hypothesis testing does not really provide conclusive evidence for accepting null or alternate hypothesis, rather it could be used as a measure to check if we have sufficient data to reject either</p>
+
+  </div><a class="u-url" href="/blog/2021/05/02/About-p-values-and-Hypothesis-Testing.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A Practitioner&#39;s experience with Data and Analytics</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/srinivasg2306" title="srinivasg2306"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/srinivasg2306" title="srinivasg2306"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
