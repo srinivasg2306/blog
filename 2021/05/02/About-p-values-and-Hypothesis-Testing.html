@@ -8,15 +8,15 @@
 <meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="About P Values And Hypothesis Testing" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="There are two contrasting views of Hypothesis testing. There is a group which is of the view that Hypothesis testing is essential for establishing statistical significance of a metric, and it is essential part of validating models. There is another group which believes that Hypothesis does not really prove or disprove a theory, but is merely a measure to check if there is sufficient data to be able to trust a model." />
-<meta property="og:description" content="There are two contrasting views of Hypothesis testing. There is a group which is of the view that Hypothesis testing is essential for establishing statistical significance of a metric, and it is essential part of validating models. There is another group which believes that Hypothesis does not really prove or disprove a theory, but is merely a measure to check if there is sufficient data to be able to trust a model." />
+<meta name="description" content="There are two contrasting views of Hypothesis testing. There is a group which is of the view that Hypothesis testing is essential for establishing statistical significance of a metric, is an essential part of Model validation. There is another group which believes that Hypothesis does not really prove or disprove a theory, but merely measures data sufficiency to arrive at any conclusion. For now, let us assume that Hypothesis testing is useful, and narrate an example" />
+<meta property="og:description" content="There are two contrasting views of Hypothesis testing. There is a group which is of the view that Hypothesis testing is essential for establishing statistical significance of a metric, is an essential part of Model validation. There is another group which believes that Hypothesis does not really prove or disprove a theory, but merely measures data sufficiency to arrive at any conclusion. For now, let us assume that Hypothesis testing is useful, and narrate an example" />
 <link rel="canonical" href="https://srinivasg2306.github.io/blog/2021/05/02/About-p-values-and-Hypothesis-Testing.html" />
 <meta property="og:url" content="https://srinivasg2306.github.io/blog/2021/05/02/About-p-values-and-Hypothesis-Testing.html" />
 <meta property="og:site_name" content="The Data and Analytics Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-05-02T00:00:00-05:00" />
 <script type="application/ld+json">
-{"url":"https://srinivasg2306.github.io/blog/2021/05/02/About-p-values-and-Hypothesis-Testing.html","@type":"BlogPosting","headline":"About P Values And Hypothesis Testing","dateModified":"2021-05-02T00:00:00-05:00","datePublished":"2021-05-02T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://srinivasg2306.github.io/blog/2021/05/02/About-p-values-and-Hypothesis-Testing.html"},"description":"There are two contrasting views of Hypothesis testing. There is a group which is of the view that Hypothesis testing is essential for establishing statistical significance of a metric, and it is essential part of validating models. There is another group which believes that Hypothesis does not really prove or disprove a theory, but is merely a measure to check if there is sufficient data to be able to trust a model.","@context":"https://schema.org"}</script>
+{"url":"https://srinivasg2306.github.io/blog/2021/05/02/About-p-values-and-Hypothesis-Testing.html","@type":"BlogPosting","headline":"About P Values And Hypothesis Testing","dateModified":"2021-05-02T00:00:00-05:00","datePublished":"2021-05-02T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://srinivasg2306.github.io/blog/2021/05/02/About-p-values-and-Hypothesis-Testing.html"},"description":"There are two contrasting views of Hypothesis testing. There is a group which is of the view that Hypothesis testing is essential for establishing statistical significance of a metric, is an essential part of Model validation. There is another group which believes that Hypothesis does not really prove or disprove a theory, but merely measures data sufficiency to arrive at any conclusion. For now, let us assume that Hypothesis testing is useful, and narrate an example","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://srinivasg2306.github.io/blog/feed.xml" title="The Data and Analytics Blog" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -77,7 +77,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      4 min read
+      3 min read
     
 </span></p>
 
@@ -86,21 +86,15 @@ window.onload = wrap_img;
     </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>There are two contrasting views of Hypothesis testing. There is a group which is of the view that Hypothesis testing is essential for establishing statistical significance of a metric, and it is essential part of validating models. There is another group which believes that Hypothesis does not really prove or disprove a theory, but is merely a measure to check if there is sufficient data to be able to trust a model.</p>
+    <p>There are two contrasting views of Hypothesis testing. There is a group which is of the view that Hypothesis testing is essential for establishing statistical significance of a metric, is an essential part of Model validation. There is another group which believes that Hypothesis does not really prove or disprove a theory, but merely measures data sufficiency to arrive at any conclusion. For now, let us assume that Hypothesis testing is useful, and narrate an example</p>
 
-<p> </p>
-
-<p>For now, let us assume that Hypothesis testing is useful, and narrate an example</p>
-
-<p> </p>
-
-<p>Marketing Campaigns are done in the form of sending messages from a company to its customers with an objective of increasing sales. It is believed that when messages are sent, some of the customers see them, and few among them will be driven to make a purchase-typically over a period of time. So messages are sent to specific customers, and their purchases are tracked for a period of time. Any sale happening during the period is attributed to the message sent.</p>
+<p>Marketing Campaigns are done in the form of sending messages from a company to its customers with an objective of increasing sales. It is believed that when messages are sent, some of the customers see them. Few among them will be driven to make a purchase, typically, over a period of time. Messages are sent to customers, and their purchases are tracked for a period of time. Any sale happening during the period is attributed to the messages sent during that period.</p>
 
 <p>(it is assumed that there is only one marketing message during the period, if there are multiple messages then the sale is attributed either to the first or last message)</p>
 
 <p> </p>
 
-<p>The attribution process is not always robust or fool-proof, and is driven by a lot of theory than actual facts. It is hard to believe that an SMS can drive crores of sales (RoI is absurdly high in these cases). In reality, the reasons can be different - Offers, Events like Birthday wedding etc., or any unknown needs of customers. While it is difficult to predict why a customer buys, it is possible to trigger a need for purchase in a customer by sending a communication at right time.</p>
+<p>The attribution process is not fool-proof, and is driven by a lot of theory than actual facts. It is hard to believe that an SMS can drive crores of sales (RoI is absurdly high in these cases). In reality, the reasons can be different - Offers, Events like Birthday wedding etc., or any unknown needs of customers. While it is difficult to predict why a customer buys, it is possible to trigger a need for purchase in a customer by sending a communication at right time.</p>
 
 <p> </p>
 
@@ -112,23 +106,19 @@ window.onload = wrap_img;
 
 <p> </p>
 
-<p>How to measure statistical significance of lift?</p>
+<p><strong><em>How to measure statistical significance of lift?</em></strong></p>
 
-<p>In this case,</p>
+<p>We run 2 sample Z test for proportion to check Significance</p>
 
-<p>H0: Response rate of Test Group = Response rate of Control Group (There is no significance difference in response rates between Test and Control Groups)</p>
+<p><em><strong>H0:</strong> Response rate of Test Group = Response rate of Control Group (There is no significance difference in response rates between Test and Control Groups)</em></p>
 
-<p>Ha : Response rate of Test Group is not equal to Response rate of Control Group</p>
-
-<p> </p>
-
-<p>We use 2 sample z test for proportion and calculate Z value</p>
+<p><strong>Ha :</strong> <em>Response rate of Test Group is not equal to Response rate of Control Group</em></p>
 
 <p> </p>
 
-<p>Z = (p1-p2)/(sqrt(p(1-p)x(1/n1 + 1/n2))</p>
+<p> </p>
 
-<p>Where p = (n1*p1+n2*p2)/(n1+n2)</p>
+<p>Z = (P1-P2)/(sqrt(P(1-P)*(1/N1 + 1/N2))</p>
 
 <p>P1= response proportion in test group</p>
 
@@ -138,25 +128,21 @@ window.onload = wrap_img;
 
 <p>N2 = size of control group</p>
 
+<p>P = (N1*P1 + N2*P2)/(N1+N2)</p>
+
 <p> </p>
 
 <p>The value of Z for two tailed test at 95% significance level is 1.96. That is - there is a 95% chance that you will retain null hypothesis when it is true, if your Z statistic is 1.96 or more.</p>
 
-<p> </p>
-
-<p>P value = chances of observing the test statistic value given that the null hypothesis is true. P value should be as low as possible for us to be confidently reject null hypothesis. It should definitely be &lt; 0.05 base minimum for us to reject null hypothesis</p>
+<p>P value - chances of observing the test statistic value given that the null hypothesis is true. P value should be as low as possible for us to be confidently reject null hypothesis. It should definitely be &lt; 0.05 base minimum for us to reject null hypothesis</p>
 
 <p> </p>
 
-<p>Let us assume that you are unable to reject null hypothesis because Z value &lt; 1.96</p>
+<p>You can run an experiment keeping P1, P2 constant but increasing N1 and N2. You will see that the Z value increases even if you increase the numbers in the original proportion of N1 and N2. This clearly indicates that as the size of data grows even if the proportion of test and control group remains same, the significance increases.</p>
 
-<p>You can run an experiment where you keep p1, p2 constant, but increase N1 and N2, you will see that the Z value increases even if you increase the numbers in the original proportions. This clearly indicates that as the size of data grows even if the proportion of test and control group remains same, the significance increases.</p>
+<p>Similarly, you can keep N1 and N2 constant and vary values of P1 and P2 such that P1-P2 increases, in this case, as P1-P2 increases, the significance value increases</p>
 
-<p>Similarly, you can keep n1 and n2 constant and vary values of p1 and p2 such that p1-p2 increases, in this case, as p1-p2 increases, the significance value increases</p>
-
-<p> </p>
-
-<p>For those who believe that Hypothesis testing never works – we could say that hypothesis testing does not really provide conclusive evidence for accepting null or alternate hypothesis, rather it could be used as a measure to check if we have sufficient data to reject either</p>
+<p>In conclusion, Hypothesis tests can be used to check sufficiency of data to make any conclusion about the Hypothesis. It never provides a conclusive evidence supporting a Hypothesis. Nevertheless, it helps in determining if observations are entirely random or due to interaction between certain variables.</p>
 
   </div><a class="u-url" href="/blog/2021/05/02/About-p-values-and-Hypothesis-Testing.html" hidden></a>
 </article>
