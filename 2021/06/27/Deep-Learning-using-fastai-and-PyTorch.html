@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Deep Learning Using Fastai And Pytorch | The Data and Analytics Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Deep Learning Using Fastai And Pytorch" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Book Review: Deep Learning for Coders with fastai &amp; PyTorch" />
+<meta property="og:description" content="Book Review: Deep Learning for Coders with fastai &amp; PyTorch" />
+<link rel="canonical" href="https://srinivasg2306.github.io/blog/2021/06/27/Deep-Learning-using-fastai-and-PyTorch.html" />
+<meta property="og:url" content="https://srinivasg2306.github.io/blog/2021/06/27/Deep-Learning-using-fastai-and-PyTorch.html" />
+<meta property="og:site_name" content="The Data and Analytics Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-06-27T00:00:00-05:00" />
+<script type="application/ld+json">
+{"url":"https://srinivasg2306.github.io/blog/2021/06/27/Deep-Learning-using-fastai-and-PyTorch.html","@type":"BlogPosting","headline":"Deep Learning Using Fastai And Pytorch","dateModified":"2021-06-27T00:00:00-05:00","datePublished":"2021-06-27T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://srinivasg2306.github.io/blog/2021/06/27/Deep-Learning-using-fastai-and-PyTorch.html"},"description":"Book Review: Deep Learning for Coders with fastai &amp; PyTorch","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://srinivasg2306.github.io/blog/feed.xml" title="The Data and Analytics Blog" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">The Data and Analytics Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Deep Learning Using Fastai And Pytorch</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-06-27T00:00:00-05:00" itemprop="datePublished">
+        Jun 27, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      5 min read
+    
+</span></p>
+
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="book-review-deep-learning-for-coders-with-fastai--pytorch">Book Review: Deep Learning for Coders with fastai &amp; PyTorch</h1>
+
+<p><img src="https://srinivasg2306.github.io/blog/assets/img/2021-06-27-Deep-Learning-using-fastai-and-PyTorch/media/image1.png" alt="" /></p>
+
+<p>I have been going through the book <strong><em>“Deep Learning for Coders with fastai \&amp;PyTorch” by Jeremy Howard and Sylvian Gugger.</em></strong> I found this book fascinating, and easy to comprehend. I also found that the code snippets provided in the book, are easy to understand and try out.</p>
+
+<p> </p>
+
+<p>Deep Learning is full of jargons and complex mathematical formulae. I have tried several top Neural Network books, but halfway through, I used to feel lost. I am practitioner and not an academician who is constantly in touch with calculus and matrix algebra. I am more interested in finding solutions to business problems. I would like to have <strong>code/SDK</strong> that can be applied to the problems I am trying to solve. It is more of a combination of AI concepts and Applications that I am interested in, not just theory.</p>
+
+<p> </p>
+
+<p>This book is what I was just looking for! It starts with a note that Deep Learning is indeed not as complicated as it is made to look. And that one does not require a PhD in Data Science or a Degree in Math to build state-of-the-art, novel Deep Learning models. It then goes on to introduce Neural net, and its architecture. It briefly introduces Machine Learning and emphasises on the need to have a holistic view of Deep Learning (including solving for <em><strong>“How will the end-user consume the output?”</strong>)</em></p>
+
+<p> </p>
+
+<p>The Book argues that Jupyter is good enough to build and deploy production grade model, and can be used to build basic Applications with User interface. Most of the Neural Network terms are explained in simple English. For example: Parameters and Activations are just numbers. Activations are the output of each layer of the neural net, and parameters are just coefficients of weights of each independent variable. One concept that caught my mind is <strong><em>universal approximation theorem</em></strong> which states that any function can be approximated to any degree of accuracy by using a combination of 1 Linear and 1 Non-Linear layers of Neural network. This is the basis for Neural Network</p>
+
+<p> </p>
+
+<p>The book contains examples and sample code for a variety of problems in Cognitive learning space involving text, images and video. At the same time, there are several examples that shows how to use Deep Learning on tabular data to solve problems such ass forecasting, regression and classification. Concepts are explained in simple language, and code snippets are provided at the same time. I think it is very important to be able read and comprehend code written in Python/Pytorch and fastai. It reinforces theoretical concepts that we just learnt.</p>
+
+<p> </p>
+
+<p>The authors of the book are creators of fastai. Here what the authors have to say about fastai (source: docs.fast.ai)</p>
+
+<p><em>fastai is a deep learning library which provides practitioners with high-level components that can quickly and easily provide state-of-the-art results in standard deep learning domains, and provides researchers with low-level components that can be mixed and matched to build new approaches. It aims to do both things without substantial compromises in ease of use, flexibility, or performance. This is possible thanks to a carefully layered architecture, which expresses common underlying patterns of many deep learning and data processing techniques in terms of decoupled abstractions. These abstractions can be expressed concisely and clearly by leveraging the dynamism of the underlying Python language and the flexibility of the PyTorch library. fastai includes:</em></p>
+
+<p> </p>
+
+<ul>
+  <li>
+    <blockquote>
+      <p><em>A new type dispatch system for Python along with a semantic type hierarchy for tensors</em></p>
+    </blockquote>
+  </li>
+  <li>
+    <blockquote>
+      <p><em>A GPU-optimized computer vision library which can be extended in pure Python</em></p>
+    </blockquote>
+  </li>
+  <li>
+    <blockquote>
+      <p><em>An optimizer which refactors out the common functionality of modern optimizers into two basic pieces, allowing optimization algorithms to be implemented in 4–5 lines of code</em></p>
+    </blockquote>
+  </li>
+  <li>
+    <blockquote>
+      <p><em>A novel 2-way callback system that can access any part of the data, model, or optimizer and change it at any point during training</em></p>
+    </blockquote>
+  </li>
+  <li>
+    <blockquote>
+      <p><em>A new data block API</em></p>
+    </blockquote>
+  </li>
+  <li>
+    <blockquote>
+      <p><em>And much more…</em></p>
+    </blockquote>
+  </li>
+</ul>
+
+<p><em>fastai is organized around two main design goals: to be approachable and rapidly productive, while also being deeply hackable and configurable. It is built on top of a hierarchy of lower-level APIs which provide composable building blocks. This way, a user wanting to rewrite part of the high-level API or add particular behavior to suit their needs does not have to learn how to use the lowest level.</em></p>
+
+<p>The examples in the book show how easy it is to build a neural net and deploy it in production - just by writing few lines of codes using fastai on pytorch.</p>
+
+<p> </p>
+
+<p>There are several documents, and videos that help people at all levels to get onboard with fastai and PyTorch. Here are some useful links</p>
+
+<ul>
+  <li>
+    <blockquote>
+      <p><a href="https://www.fast.ai/"><span class="underline">https://www.fast.ai/</span></a></p>
+    </blockquote>
+  </li>
+  <li>
+    <blockquote>
+      <p><a href="https://course.fast.ai/"><span class="underline">https://course.fast.ai/</span></a></p>
+    </blockquote>
+  </li>
+  <li>
+    <blockquote>
+      <p><a href="https://course19.fast.ai/part2"><span class="underline">https://course19.fast.ai/part2</span></a></p>
+    </blockquote>
+  </li>
+</ul>
+
+<p>One of my favourites (and probably yours too, if you want to get deep into the algebra behind neural nets)</p>
+
+<ul>
+  <li>
+    <blockquote>
+      <p><a href="https://github.com/fastai/numerical-linear-algebra/blob/master/README.md"><span class="underline">https://github.com/fastai/numerical-linear-algebra/blob/master/README.md</span></a></p>
+    </blockquote>
+  </li>
+</ul>
+
+<p> </p>
+
+<p>I urge you to give it a try, and see if it helps in expediting some of your Deep learning projects. One note: PyTorch will require GPU machines. Since fastai works on PyTorch, the same applies for fastai too. So make sure you have access to GPU machines. One way is to use Paperspace.com which provides servers with GPU for free. If you have Cloud Credits such as GCP, Azure or AWS, you can spin up machines there and install fastai libraries there. I think AWS and GCP provide fastai images too - which can be deployed on a GPU machine.</p>
+
+<p> </p>
+
+<p>Another interesting fact is that the book was written on Jupyter notebook. Therefore, free version (jupyter notebook version) is available on fast.ai website. The hardcopy is available on Amazon.</p>
+
+  </div><a class="u-url" href="/blog/2021/06/27/Deep-Learning-using-fastai-and-PyTorch.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>A Practitioners Perspective of Data and Analytics</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/srinivasg2306" title="srinivasg2306"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/srinivasg2306" title="srinivasg2306"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
