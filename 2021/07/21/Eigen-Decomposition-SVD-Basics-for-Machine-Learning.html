@@ -118,10 +118,11 @@ window.onload = wrap_img;
 <p>A Square matrix can be decomposed into Eigen values and Eigen vectors as follows</p>
 
 <ul>
-  <li>Let (X1,X2,X3\text{..}\text{Xn}) be Eigen Vectors of a matrix A, such that (\text{AX}1 = L1X1,\text{AX}2 = \text{LX}2,..\text{AXn} = \text{LXn},) where L1, L2, L3,..Ln are Eigen values</li>
-  <li>Then Matrix (P = \lbrack X1,X2,X3\text{…}\text{Xn}\rbrack) arranged in a columnar fashion, D = Diagonal matrix of (\lbrack L1,L2,..\text{Ln}\rbrack), (P^{-}1) - inverse of P</li>
-  <li>P is matrix of eigen vectors, D is eigenvalues arranged in a diagonal matrix, and (P^{-}1) is inverse of matrix of eigen vectors</li>
-  <li>It can be Mathematically proven that (A = P.D.P^{-}1) (Dot products)</li>
+  <li>Let X1, X2, X3…Xn be Eigen Vectors of a matrix A, such that<br />
+AX1 = LX1, AX2 = LX2,…AXn = LXn where L1, L2, L3,..Ln are Eigen values</li>
+  <li>Then Matrix P = [X1,X2,X3…Xn] where Vectors X1, X2..Xn arranged in a columnar fashion, D = Diagonal matrix of [L1,L2,..Ln], P<sup>-1</sup>- inverse of P</li>
+  <li>P is matrix of eigen vectors, D is eigenvalues arranged in a diagonal matrix, and P<sup>-1</sup> which is the Inverse of P</li>
+  <li>It can be Mathematically proven that A = P.D.P<sup>-1</sup>(Dot products)</li>
   <li>Eigen values and Eigen vectors capture information about a matrix. The first eigen vector and first eigen value captures highest information about the matrix. Similarly, second eigen vector and second eigen value captures 2nd highest information so on…</li>
   <li>This technique is useful in dimensional reduction/compression</li>
 </ul>
@@ -169,16 +170,16 @@ array([11.30795739, -1.19198827, -3.11596912])</code></pre></td>
 
 <p>Okay, Eigen decomposition works when the matrix is a square matrix. But in most real-life scenarios, the matrices are not square. Therefore, Eigen decomposition is not useful in many cases. So, what do we decompose non-square matrices? Singular Vector Decomposition is the answer to this problem.</p>
 
-<p>Any (A_{\text{mxn}}) Matrix can be decomposed as</p>
+<p>Any Matrix A<sub>mxn</sub> can be decomposed as</p>
 
-<p>[A_{\text{mxn}} = U_{\text{mxm}}.S_{\text{mxn}}.V_{\text{nxn}}^{T}]</p>
+<p>A<sub>mxn</sub> = U<sub>mxm</sub>.S<sub>mxn</sub>.V<sup>T</sup><sub>nxn</sub></p>
 
 <p>Where</p>
 
 <ul>
   <li>S - Singular matrix which is a diagonal matrix</li>
   <li>U - Left Singular matrix</li>
-  <li>(V^{T}) - Right Singular matrix</li>
+  <li>V<sup>T</sup>- Right Singular matrix</li>
 </ul>
 
 <p>The diagonal values in Matrix S is called Singular Matrix and the Singular values arranged in the descending order from top-left</p>
@@ -248,11 +249,11 @@ array([11.30795739, -1.19198827, -3.11596912])</code></pre></td>
 
 <p>Let us calculate the first low rank matrix (Reconstructing)</p>
 
-<p>[U_{1}.S_{1}.V_{1}^{T}]</p>
+<p>U<sub>1</sub>.S<sub>1</sub>.V<sub>1</sub><sup>T</sup></p>
 
 <p><img src="https://srinivasg2306.github.io/blog/assets/img/2021-07-21-Eigen-Decomposition-SVD-Basics-for-Machine-Learning/media/image5.tmp" alt="" /></p>
 
-<p>If you add (U_{2}.S_{2}.V_{2}^{T})to Rank 1 approximation then we get Rank 2 Matrix</p>
+<p>If you add U<sub>2</sub>.S<sub>2</sub>.V<sub>2</sub><sup>T</sup> to Rank 1 approximation then we get Rank 2 Matrix</p>
 
 <p><img src="https://srinivasg2306.github.io/blog/assets/img/2021-07-21-Eigen-Decomposition-SVD-Basics-for-Machine-Learning/media/image6.tmp" alt="" /></p>
 
@@ -266,7 +267,7 @@ array([11.30795739, -1.19198827, -3.11596912])</code></pre></td>
 
 <p>In Matrix U above, the first cell of the first column (-0.83) indicates that <strong>formal_shirt</strong> is unique and has its own factor. Similarly, the 3rd and 4th cell in the second column are close to each other and have relatively large values. These values correspond to Jeans and T-Shirts. <strong>This indicates that Jeans and T-Shirts are part of same cluster (most likely casual clothing).</strong> The other columns, even though giving some information about how products might be related, are not significant because the singular values are much lower.</p>
 
-<p>Similarly in Matrix (V^{T}) Users 3,4 are close to each other in their tastes (Some one that buys formals and casuals) as shown in the third and fourth cells of 1st row. User 2 is unique in his taste and hence has a value of 0.90 and no other users are close to this user as indicated in 2nd cell of Row 2 in the Matrix. The last two rows, although, giving some information about the users, are not significant because the singluar values are much lower than the first two</p>
+<p>Similarly in Matrix V<sup>T</sup> Users 3,4 are close to each other in their tastes (Some one that buys formals and casuals) as shown in the third and fourth cells of 1st row. User 2 is unique in his taste and hence has a value of 0.90 and no other users are close to this user as indicated in 2nd cell of Row 2 in the Matrix. The last two rows, although, giving some information about the users, are not significant because the singluar values are much lower than the first two</p>
 
 <p>Matrix factorization methods are extensively used in several use cases</p>
 
